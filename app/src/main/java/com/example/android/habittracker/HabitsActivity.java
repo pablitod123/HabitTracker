@@ -38,22 +38,10 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private void displayDatabaseInfo() {
+
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
-        String[] projection = {
-                HabitEntry._ID,
-                HabitEntry.COLUMN_HABIT_TITLE,
-                HabitEntry.COLUMN_DAYS_TIL_GOAL
-        };
-
-        Cursor cursor = db.query(
-                HabitEntry.TABLE_NAME,
-                projection,
-                null,
-                null,
-                null,
-                null,
-                null);
+        Cursor cursor = mDbHelper.readAllHabits(db);
 
         TextView displayView = (TextView) findViewById(R.id.text_view_habits);
 

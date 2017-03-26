@@ -1,6 +1,7 @@
 package com.example.android.habittracker.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.android.habittracker.data.HabitsContract.HabitEntry;
@@ -12,6 +13,8 @@ import com.example.android.habittracker.data.HabitsContract.HabitEntry;
 public class HabitsDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "habits.db";
     private static final int DATABASE_VERSTION = 1;
+
+    private HabitsDbHelper mDbHelper;
 
     public HabitsDbHelper(Context context) {super(context, DATABASE_NAME, null, DATABASE_VERSTION); }
 
@@ -29,4 +32,24 @@ public class HabitsDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public Cursor readAllHabits(SQLiteDatabase db) {
+        String[] projection = {
+                HabitEntry._ID,
+                HabitEntry.COLUMN_HABIT_TITLE,
+                HabitEntry.COLUMN_DAYS_TIL_GOAL
+        };
+        Cursor cursor = db.query(
+                HabitEntry.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                null);
+
+        return cursor;
+    }
+
+
 }
