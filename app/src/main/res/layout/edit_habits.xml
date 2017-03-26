@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <!-- Name field -->
+        <EditText
+            android:id="@+id/edit_habit_title"
+            android:hint="@string/habit_title"
+            android:inputType="textCapWords"
+            style="@style/EditHabitStyle" />
+
+        <!-- Breed field -->
+        <EditText
+            android:id="@+id/edit_days_til_goal"
+            android:hint="@string/days_til_goal"
+            android:inputType="textCapWords"
+            style="@style/EditHabitStyle" />
+
+        <Button
+            android:id="@+id/add_habit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Habit"
+            android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

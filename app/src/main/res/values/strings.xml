@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Habit Tracker</string>
+
+
+    <string name="habit_title">Habit Title</string>
+    <string name="days_til_goal">Days Until Goal</string>
+</resources>
